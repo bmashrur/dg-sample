@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/', 'EmployeesController@searchEmployees');
+Route::post('get-employees', 'EmployeesController@getEmployees')->name('get-employees');
