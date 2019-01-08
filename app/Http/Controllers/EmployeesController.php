@@ -11,7 +11,7 @@ class EmployeesController extends Controller
 
     public function __construct()
     {
-
+        $this->allEmployees = [];
     }
 
     public function searchEmployees()
@@ -23,6 +23,24 @@ class EmployeesController extends Controller
 
     public function getEmployees(Request $request)
     {
-        dd($request->all());
+        $selectedEmployeeId = $request->input('employee_id');
+        $this->findEmployees($selectedEmployeeId);
+
+        dd($this->allEmployees);
+
+    }
+
+    private function findEmployees($selectedEmployeeId)
+    {
+        $employees = Employee::where('reports_to', $selectedEmployeeId)->pluck('name', 'id')->toArray();
+
+        if(count($employees) > 0) {
+
+            foreach($employees as $key => $employee) {
+                array_push($this->allEmployees, $employee);
+                $this->findEmployees($key);
+            }
+
+        }
     }
 }

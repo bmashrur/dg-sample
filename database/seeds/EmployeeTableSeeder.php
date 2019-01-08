@@ -17,23 +17,17 @@ class EmployeeTableSeeder extends Seeder
     {
         Employee::truncate();
 
-        $EmployeeData = [
-            [
-                'name' => 'Md Mashrur',
-                'designation' => 'Software Engineer',
-                'report_to' => 0
-            ],
-            [
-                'name' => 'Bari',
-                'designation' => 'Software Engineer',
-                'report_to' => 1
-            ],
-            [
-                'name' => 'Sobhan',
-                'designation' => 'Junior Software Engineer',
-                'report_to' => 1
-            ]
-        ];
+        $EmployeeData = [];
+
+        for($i = 0; $i <= 1000; $i++) {
+
+            $EmployeeData[($i + 1)] = [
+                'name'          => 'Bari' . ($i + 1),
+                'designation'   => 'SE' . ($i + 1),
+                'reports_to'    => count($EmployeeData) == 0 ? 0 : array_rand($EmployeeData),
+                'created_at'    => \Carbon\Carbon::now()
+            ];
+        }
 
         Employee::insert($EmployeeData);
 

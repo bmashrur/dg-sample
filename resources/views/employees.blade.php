@@ -25,8 +25,8 @@
         <div class="col-md-4">
             {!! Form::open(['route' => ["get-employees"], 'class' => 'form', 'files' => true]) !!}
             <div class="form-group">
-                <label for="employees">Select Employee</label>
-                {!! Form::select('employees', $employees, null, ['class' => 'form-control', 'id' => 'employees' ]) !!}
+                <label for="employee_id">Select Employee</label>
+                {!! Form::select('employee_id', $employees, null, ['class' => 'form-control', 'id' => 'employees' ]) !!}
             </div>
             <button type="submit" class="btn btn-primary">Search</button>
         </div>

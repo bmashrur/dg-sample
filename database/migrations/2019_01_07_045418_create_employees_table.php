@@ -18,7 +18,7 @@ class CreateEmployeesTable extends Migration
 
             $table->string('name', 255)->nullable();
             $table->string('designation', 255)->nullable();
-            $table->integer('report_to')->nullable();
+            $table->integer('reports_to')->nullable();
 
             $table->timestamps();
         });
