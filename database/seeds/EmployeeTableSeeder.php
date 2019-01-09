@@ -4,10 +4,16 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use  \App\Models\Employee;
 /**
- * Class EmployeeTableSeeder.
+ * Class EmployeeTableSeeder
  */
 class EmployeeTableSeeder extends Seeder
 {
+    private $limit;
+
+    public function __construct()
+    {
+        $this->limit = 10;
+    }
     /**
      * Run the database seeds.
      *
@@ -19,7 +25,7 @@ class EmployeeTableSeeder extends Seeder
 
         $EmployeeData = [];
 
-        for($i = 0; $i <= 1000; $i++) {
+        for($i = 0; $i < $this->limit; $i++) {
 
             $EmployeeData[($i + 1)] = [
                 'name'          => 'Bari' . ($i + 1),

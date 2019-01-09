@@ -24,9 +24,10 @@ class EmployeesController extends Controller
     public function getEmployees(Request $request)
     {
         $selectedEmployeeId = $request->input('employee_id');
+
         $this->findEmployees($selectedEmployeeId);
 
-        dd($this->allEmployees);
+        return $this->allEmployees;
 
     }
 
