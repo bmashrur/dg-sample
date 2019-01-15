@@ -5,7 +5,6 @@ Please follow the instructions below
 * Clone the repository using `git clone https://github.com/mashb16/dg-sample.git`
 * Create `.env` by copying the `env.example` file
 * `composer install`
-* `npm install`
 * `php artisan key:generate`
 * `php artisan migrate`
 * within EmployeeTableSeeder class change the limit as per your requirement
